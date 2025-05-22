@@ -2,8 +2,8 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Slide Puzzle (3×3–5×5)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Puzzle</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,9 +11,9 @@
     <header>
       <h1>Slide Puzzle</h1>
       <div class="controls">
-        <button id="new-game">Nova igra</button>
-        <button id="undo" disabled>Undo</button>
-        <button id="hint" disabled>Namig</button>
+        <button id="new-game">🔁 Nova igra</button>
+        <button id="undo" disabled>↩️ Razveljavi</button>
+        <button id="hint" disabled>✨ Namig</button>
         <label for="difficulty">Velikost:</label>
         <select id="difficulty">
           <option value="3">3×3</option>
@@ -35,22 +35,20 @@
       </div>
     </main>
 
-    <button id="help-btn">Kako igrati</button>
+    <button id="help-btn">❓ Kako igrati</button>
     <div id="help-modal">
       <div class="modal-content">
         <h2>Kako igrati</h2>
-        <p>Premikajte ploščice z miško ali z uporabo puščic na tipkovnici.</p>
+        <p>Premikajte ploščice z miško ali puščicami na tipkovnici.</p>
         <ul>
-          <li><strong>Nova igra</strong> – začne novo igro.</li>
-          <li><strong>Undo</strong> – razveljavi zadnjo potezo.</li>
-          <li><strong>Namig</strong> – označi prvo napačno ploščico.</li>
-          <li><strong>Velikost</strong> – izberite 3×3, 4×4 ali 5×5.</li>
+          <li><strong>Nova igra</strong> – zaženi znova.</li>
+          <li><strong>Razveljavi</strong> – korak nazaj.</li>
+          <li><strong>Namig</strong> – označi napačno ploščico.</li>
         </ul>
         <button id="close-help">Zapri</button>
       </div>
     </div>
   </div>
-
   <script src="app.js" defer></script>
 </body>
 </html>
