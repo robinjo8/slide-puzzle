@@ -57,8 +57,10 @@ export default function createSlidePuzzle(container) {
       (width - (size-1)*4)/size,
       (height - (size-1)*4)/size
     ));
-    board.style.gridTemplate = 
-      `repeat(${size}, ${tileSize}px) / repeat(${size}, ${tileSize}px)`;
+    board.style.display = 'grid';
+    board.style.gridTemplateColumns = `repeat(${size}, ${tileSize}px)`;
+    board.style.gridTemplateRows = `repeat(${size}, ${tileSize}px)`;
+    
     board.innerHTML = '';
     grid.forEach((n,i) => {
       const t = document.createElement('div');
