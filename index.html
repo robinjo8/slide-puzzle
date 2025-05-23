@@ -2,42 +2,53 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slide Puzzle</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Slide Puzzle</h1>
-  <div id="game" class="puzzle-root"></div>
+  <div class="wrapper">
+    <header>
+      <h1>Slide Puzzle</h1>
+      <div class="controls">
+        <button id="new-game">🔁 Nova igra</button>
+        <button id="undo" disabled>↩️ Razveljavi</button>
+        <button id="hint" disabled>✨ Namig</button>
+        <label for="difficulty">Velikost:</label>
+        <select id="difficulty">
+          <option value="3">3×3</option>
+          <option value="4" selected>4×4</option>
+          <option value="5">5×5</option>
+        </select>
+        <div class="stats">
+          <span id="moves">Poteze: 0</span>
+          <span id="timer">Čas: 0s</span>
+          <span id="record">Rekord: –</span>
+        </div>
+      </div>
+    </header>
 
-  <div class="text-muted-foreground mt-4 max-w-lg">
-    <button onclick="toggleInstructions()" id="toggle">❓ Kako igrati</button>
-    <div id="instructions" style="display: none; margin-top: 1em;">
-      <p>Premikajte ploščice z miško ali puščicami na tipkovnici.</p>
-      <ul>
-        <li><strong>Nova igra</strong> – zaženi znova.</li>
-        <li><strong>Razveljavi</strong> – korak nazaj.</li>
-        <li><strong>Namig</strong> – označi napačno ploščico.</li>
-      </ul>
-      <button onclick="toggleInstructions()">Zapri</button>
+    <main>
+      <div id="game-container">
+        <div id="puzzle" tabindex="0" aria-label="Slide puzzle"></div>
+        <div id="message" role="alert">Bravo, igra je končana!</div>
+      </div>
+    </main>
+
+    <button id="help-btn">❓ Kako igrati</button>
+    <div id="help-modal">
+      <div class="modal-content">
+        <h2>Kako igrati</h2>
+        <p>Premikajte ploščice z miško ali puščicami na tipkovnici.</p>
+        <ul>
+          <li><strong>Nova igra</strong> – zaženi znova.</li>
+          <li><strong>Razveljavi</strong> – korak nazaj.</li>
+          <li><strong>Namig</strong> – označi napačno ploščico.</li>
+        </ul>
+        <button id="close-help">Zapri</button>
+      </div>
     </div>
   </div>
-
-  <script type="module">
-    import createSlidePuzzle from './app.js';
-    createSlidePuzzle(document.getElementById('game'));
-
-    window.toggleInstructions = function () {
-      const div = document.getElementById('instructions');
-      const toggle = document.getElementById('toggle');
-      if (div.style.display === 'none') {
-        div.style.display = 'block';
-        toggle.textContent = '❌ Zapri navodila';
-      } else {
-        div.style.display = 'none';
-        toggle.textContent = '❓ Kako igrati';
-      }
-    };
-  </script>
+  <script src="app.js" defer></script>
 </body>
 </html>
